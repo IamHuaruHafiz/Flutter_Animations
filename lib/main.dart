@@ -1,5 +1,6 @@
 import 'package:animations/chapter_3.dart';
 import 'package:animations/chapter_4.dart';
+import 'package:animations/chapter_5.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,6 +8,7 @@ void main() {
   runApp(const MyApp());
 }
 
+//implicit animations deals with displaying animations without the use of animation controllers
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const AnimationsChapterFour(),
+      home: const AnimationsChapterFive(),
     );
   }
 }

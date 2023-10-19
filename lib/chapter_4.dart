@@ -31,7 +31,7 @@ class _AnimationsChapterFourState extends State<AnimationsChapterFour> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("People"),
+        title: const Text("Hero Animations :People"),
       ),
       body: ListView.builder(
           itemCount: people.length,

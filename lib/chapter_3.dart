@@ -70,11 +70,8 @@ class _AnimationsChapterThreeState extends State<AnimationsChapterThree>
     return Scaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const SizedBox(
-          height: widthAndHeight,
-          width: double.infinity,
-        ),
         AnimatedBuilder(
           animation:
               Listenable.merge([_xController, _yController, _zController]),
