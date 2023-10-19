@@ -1,4 +1,5 @@
 import 'package:animations/chapter_3.dart';
+import 'package:animations/chapter_4.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const AnimationsChapterThree(),
+      home: const AnimationsChapterFour(),
     );
   }
 }
