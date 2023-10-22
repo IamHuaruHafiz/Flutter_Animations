@@ -1,9 +1,4 @@
 import 'package:animations/chapter_1.dart';
-import 'package:animations/chapter_3.dart';
-import 'package:animations/chapter_4.dart';
-import 'package:animations/chapter_5.dart';
-import 'package:animations/chapter_6.dart';
-import 'package:animations/chapter_7.dart';
 import 'package:flutter/material.dart';
 
 void main() {
