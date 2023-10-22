@@ -1,3 +1,5 @@
+import 'package:animations/chapter_3.dart';
+import 'package:animations/chapter_5.dart';
 import 'package:flutter/material.dart';
 
 class AnimationsChapterFour extends StatefulWidget {
@@ -30,9 +32,34 @@ class _AnimationsChapterFourState extends State<AnimationsChapterFour> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Hero Animations :People"),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black12,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AnimationsChapterFive(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.arrow_forward_ios,
+          color: Colors.white,
+        ),
       ),
+      appBar: AppBar(
+          title: const Text("Hero Animations"),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AnimationsChapterThree(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+            ),
+          )),
       body: ListView.builder(
           itemCount: people.length,
           itemBuilder: (context, index) {

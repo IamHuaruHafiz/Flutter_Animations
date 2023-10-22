@@ -1,3 +1,5 @@
+import 'package:animations/chapter_4.dart';
+import 'package:animations/chapter_6.dart';
 import 'package:flutter/material.dart';
 
 class AnimationsChapterFive extends StatefulWidget {
@@ -17,10 +19,34 @@ class _AnimationsChapterFiveState extends State<AnimationsChapterFive> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Implicit Animations"),
-        centerTitle: true,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black12,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AnimationsChapterSix(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.arrow_forward_ios,
+          color: Colors.white,
+        ),
       ),
+      appBar: AppBar(
+          title: const Text("Implicit Animations"),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AnimationsChapterFour(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+            ),
+          )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

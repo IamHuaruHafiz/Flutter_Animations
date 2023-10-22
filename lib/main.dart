@@ -1,7 +1,9 @@
+import 'package:animations/chapter_1.dart';
 import 'package:animations/chapter_3.dart';
 import 'package:animations/chapter_4.dart';
 import 'package:animations/chapter_5.dart';
 import 'package:animations/chapter_6.dart';
+import 'package:animations/chapter_7.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const AnimationsChapterSix(),
+      home: const Home(),
     );
   }
 }
@@ -32,7 +34,22 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black12,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AnimationChapterOne(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.arrow_forward_ios,
+          color: Colors.white,
+        ),
+      ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 3,
         centerTitle: true,
         title: const Text("Home"),
@@ -119,7 +136,8 @@ class _AnimatedPromptState extends State<AnimatedPrompt>
 
     _controller
       ..reset()
-      ..forward();
+      ..forward()
+      ..repeat();
     return ClipRRect(
       //cliprrect is used to prevent it's children from outflowing it
       borderRadius: BorderRadius.circular(20),

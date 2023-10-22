@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:animations/chapter_5.dart';
+import 'package:animations/chapter_7.dart';
 import 'package:flutter/material.dart';
 
 class AnimationsChapterSix extends StatefulWidget {
@@ -38,10 +40,34 @@ class _AnimationsChapterSixState extends State<AnimationsChapterSix> {
   Widget build(BuildContext context) {
     var color = getRandomColor();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Tween Animation Builder"),
-        centerTitle: true,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black12,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AnimationsChapterSeven(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.arrow_forward_ios,
+          color: Colors.white,
+        ),
       ),
+      appBar: AppBar(
+          title: const Text("Tween Animation Builder"),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AnimationsChapterFive(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+            ),
+          )),
       body: Center(
         child: ClipPath(
           clipper: CircleClipper(),

@@ -1,3 +1,5 @@
+import 'package:animations/chapter_1.dart';
+import 'package:animations/chapter_3.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' show pi;
 
@@ -155,60 +157,90 @@ class _AnimationChapterTwoState extends State<AnimationChapterTwo>
         ..forward();
     });
     return Scaffold(
-        body: Center(
-      child: SafeArea(
-          child: AnimatedBuilder(
-        animation: _counterClockwiseRotationController,
-        builder: (context, child) {
-          return Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.identity()
-              ..rotateZ(_counterClockwiseRotationAnimation.value),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              AnimatedBuilder(
-                animation: _flipController,
-                builder: (context, child) {
-                  return Transform(
-                    alignment: Alignment.centerRight,
-                    transform: Matrix4.identity()
-                      ..rotateY(
-                        _flipAnimation.value,
-                      ),
-                    child: ClipPath(
-                      clipper: const HalfCircleClipper(side: CircleSide.left),
-                      child: Container(
-                        height: 150,
-                        width: 150,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  );
-                },
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black12,
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AnimationsChapterThree(),
               ),
-              AnimatedBuilder(
-                animation: _flipController,
-                builder: (context, child) {
-                  return Transform(
-                    alignment: Alignment.centerLeft,
-                    transform: Matrix4.identity()
-                      ..rotateY(
-                        _flipAnimation.value,
-                      ),
-                    child: ClipPath(
-                      clipper: const HalfCircleClipper(side: CircleSide.right),
-                      child: Container(
-                        height: 150,
-                        width: 150,
-                        color: Colors.yellow,
-                      ),
-                    ),
-                  );
-                },
-              )
-            ]),
-          );
-        },
-      )),
-    ));
+            );
+          },
+          child: const Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.white,
+          ),
+        ),
+        appBar: AppBar(
+            leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AnimationChapterOne(),
+              ),
+            );
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+          ),
+        )),
+        body: Center(
+          child: SafeArea(
+              child: AnimatedBuilder(
+            animation: _counterClockwiseRotationController,
+            builder: (context, child) {
+              return Transform(
+                alignment: Alignment.center,
+                transform: Matrix4.identity()
+                  ..rotateZ(_counterClockwiseRotationAnimation.value),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  AnimatedBuilder(
+                    animation: _flipController,
+                    builder: (context, child) {
+                      return Transform(
+                        alignment: Alignment.centerRight,
+                        transform: Matrix4.identity()
+                          ..rotateY(
+                            _flipAnimation.value,
+                          ),
+                        child: ClipPath(
+                          clipper:
+                              const HalfCircleClipper(side: CircleSide.left),
+                          child: Container(
+                            height: 150,
+                            width: 150,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  AnimatedBuilder(
+                    animation: _flipController,
+                    builder: (context, child) {
+                      return Transform(
+                        alignment: Alignment.centerLeft,
+                        transform: Matrix4.identity()
+                          ..rotateY(
+                            _flipAnimation.value,
+                          ),
+                        child: ClipPath(
+                          clipper:
+                              const HalfCircleClipper(side: CircleSide.right),
+                          child: Container(
+                            height: 150,
+                            width: 150,
+                            color: Colors.yellow,
+                          ),
+                        ),
+                      );
+                    },
+                  )
+                ]),
+              );
+            },
+          )),
+        ));
   }
 }
